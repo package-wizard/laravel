@@ -7,7 +7,7 @@ use Helldar\PackageWizard\Steppers\BaseStepper;
 final class PackageStepper extends BaseStepper
 {
     protected array $require = [
-            'php' => '^8.0',
+        'php' => '^8.0',
 
         'illuminate/support' => '^8.0',
     ];
