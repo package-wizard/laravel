@@ -1,47 +1,48 @@
 {
-    "name": "andrey-helldar/package-wizard-template",
-    "description": "Basic template for the Package Wizard extension.",
-    "license": "MIT",
-    "type": "library",
-    "keywords": [
-        "composer",
-        "init",
-        "initializer",
-        "package",
-        "packages",
-        "plugin",
-        "wizard",
-        "template",
-        "preset"
-    ],
-    "authors": [
-        {
-            "name": "Andrey Helldar",
-            "email": "helldar@dragon-code.pro",
-            "homepage": "https://github.com/andrey-helldar"
-        }
-    ],
-    "support": {
-        "issues": "https://github.com/andrey-helldar/package-wizard/issues",
-        "source": "https://github.com/andrey-helldar/package-wizard"
-    },
-    "require-dev": {
-        "andrey-helldar/package-wizard": "^1.0"
-    },
-    "minimum-stability": "stable",
-    "prefer-stable": true,
-    "autoload": {
-        "psr-4": {
-            "Helldar\\PackageWizardTemplate\\": "src"
-        }
-    },
-    "config": {
-        "allow-plugins": {
-            "dragon-code/codestyler": true,
-            "ergebnis/composer-normalize": true,
-            "friendsofphp/php-cs-fixer": true
-        },
-        "preferred-install": "dist",
-        "sort-packages": true
-    }
+            "name": "andrey-helldar/package-wizard-template",
+            "description": "Basic template for the Package Wizard extension.",
+            "license": "MIT",
+            "type": "library",
+            "keywords": [
+                        "composer",
+                        "init",
+                        "initializer",
+                        "package",
+                        "packages",
+                        "plugin",
+                        "wizard",
+                        "template",
+                        "preset"
+            ],
+            "authors": [
+                        {
+                                    "name": "Andrey Helldar",
+                                    "email": "helldar@dragon-code.pro",
+                                    "homepage": "https://github.com/andrey-helldar"
+                        }
+            ],
+            "support": {
+                        "issues": "https://github.com/andrey-helldar/package-wizard/issues",
+                        "source": "https://github.com/andrey-helldar/package-wizard"
+            },
+            "require-dev": {
+                        "andrey-helldar/package-wizard": "^1.0"
+            },
+            "minimum-stability": "stable",
+            "prefer-stable": true,
+            "autoload": {
+                        "psr-4": {
+                                    "Helldar\\PackageWizardTemplate\\": "src"
+                        }
+            },
+            "config": {
+                        "allow-plugins": {
+                                    "dragon-code/codestyler": true,
+                                    "ergebnis/composer-normalize": true,
+                                    "friendsofphp/php-cs-fixer": true,
+                                    "andrey-helldar/package-wizard": true
+                        },
+                        "preferred-install": "dist",
+                        "sort-packages": true
+            }
 }
