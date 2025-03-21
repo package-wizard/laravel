@@ -1,66 +1,71 @@
 {
-    "name": "andrey-helldar/package-wizard-template",
-    "description": "Basic template for the Package Wizard extension.",
+    "$schema": "https://getcomposer.org/schema.json",
+    "name": "laravel/laravel",
+    "type": "project",
+    "description": "The skeleton application for the Laravel framework.",
+    "keywords": ["laravel", "framework"],
     "license": "MIT",
-    "type": "library",
-    "keywords": [
-        "composer",
-        "init",
-        "initializer",
-        "package",
-        "packages",
-        "plugin",
-        "wizard",
-        "template",
-        "preset"
-    ],
-    "authors": [
-        {
-            "name": "Andrey Helldar",
-            "email": "helldar@dragon-code.pro",
-            "homepage": "https://github.com/andrey-helldar"
-        }
-    ],
-    "support": {
-        "issues": "https://github.com/andrey-helldar/package-wizard/issues",
-        "source": "https://github.com/andrey-helldar/package-wizard"
+    "require": {
+        "php": "^8.2",
+        "laravel/framework": "^12.0",
+        "laravel/tinker": "^2.10.1"
     },
-    "funding": [
-        {
-            "type": "github",
-            "url": "https://github.com/sponsors/TheDragonCode"
-        },
-        {
-            "type": "open_collective",
-            "url": "https://opencollective.com/dragon-code"
-        },
-        {
-            "type": "boosty",
-            "url": "https://boosty.to/dragon-code"
-        },
-        {
-            "type": "yoomoney",
-            "url": "https://yoomoney.ru/to/410012608840929"
-        }
-    ],
     "require-dev": {
-        "andrey-helldar/package-wizard": "^1.0"
+        "fakerphp/faker": "^1.23",
+        "laravel/pail": "^1.2.2",
+        "laravel/pint": "^1.13",
+        "laravel/sail": "^1.41",
+        "mockery/mockery": "^1.6",
+        "nunomaduro/collision": "^8.6",
+        "phpunit/phpunit": "^11.5.3"
     },
-    "minimum-stability": "stable",
-    "prefer-stable": true,
     "autoload": {
         "psr-4": {
-            "Helldar\\PackageWizardTemplate\\": "src"
+            "App\\": "app/",
+            "Database\\Factories\\": "database/factories/",
+            "Database\\Seeders\\": "database/seeders/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "post-autoload-dump": [
+            "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
+            "@php artisan package:discover --ansi"
+        ],
+        "post-update-cmd": [
+            "@php artisan vendor:publish --tag=laravel-assets --ansi --force"
+        ],
+        "post-root-package-install": [
+            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+        ],
+        "post-create-project-cmd": [
+            "@php artisan key:generate --ansi",
+            "@php -r \"file_exists('database/database.sqlite') || touch('database/database.sqlite');\"",
+            "@php artisan migrate --graceful --ansi"
+        ],
+        "dev": [
+            "Composer\\Config::disableProcessTimeout",
+            "npx concurrently -c \"#93c5fd,#c4b5fd,#fb7185,#fdba74\" \"php artisan serve\" \"php artisan queue:listen --tries=1\" \"php artisan pail --timeout=0\" \"npm run dev\" --names=server,queue,logs,vite"
+        ]
+    },
+    "extra": {
+        "laravel": {
+            "dont-discover": []
         }
     },
     "config": {
-        "allow-plugins": {
-            "dragon-code/codestyler": true,
-            "ergebnis/composer-normalize": true,
-            "friendsofphp/php-cs-fixer": true,
-            "andrey-helldar/package-wizard": true
-        },
+        "optimize-autoloader": true,
         "preferred-install": "dist",
-        "sort-packages": true
-    }
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true,
+            "php-http/discovery": true
+        }
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
 }
