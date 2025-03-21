@@ -1,0 +1,7 @@
+### GET inspiring
+GET {{host}}/api/inspiring
+Accept: application/json
+Content-Type: application/json
+X-Some-Key: {{token}}
+
+###
