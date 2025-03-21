@@ -28,7 +28,10 @@
         },
         {
             "type": "license",
-            "replace": ["MIT", "MIT License"]
+            "replace": [
+                "MIT",
+                "MIT License"
+            ]
         },
         {
             "type": "author",

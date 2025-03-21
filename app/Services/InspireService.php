@@ -13,7 +13,9 @@ use function explode;
 
 class InspireService
 {
-    /** @return Collection<QuoteData> */
+    /**
+     * @return Collection<QuoteData>
+     */
     public function quotes(): Collection
     {
         return Cache::make()
