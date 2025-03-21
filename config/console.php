@@ -3,6 +3,6 @@
 declare(strict_types=1);
 
 return [
-    /** In minutes */
+    // In minutes
     'default_ttl' => 600,
 ];

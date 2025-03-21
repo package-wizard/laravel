@@ -1,9 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 use App\Models\User;
 
 return [
-
     'defaults' => [
         'guard'     => env('AUTH_GUARD', 'web'),
         'passwords' => env('AUTH_PASSWORD_BROKER', 'users'),
@@ -33,5 +34,4 @@ return [
     ],
 
     'password_timeout' => env('AUTH_PASSWORD_TIMEOUT', 10800),
-
 ];

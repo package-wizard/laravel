@@ -1,11 +1,13 @@
 <?php
 
-return [
+declare(strict_types=1);
 
+return [
     'default' => env('QUEUE_CONNECTION', 'redis'),
+    
+    'default_ttl' => 300,
 
     'connections' => [
-
         'sync' => [
             'driver' => 'sync',
         ],
@@ -18,7 +20,6 @@ return [
             'block_for'    => null,
             'after_commit' => true,
         ],
-
     ],
 
     'batching' => [
@@ -31,5 +32,4 @@ return [
         'database' => env('DB_CONNECTION', 'sqlite'),
         'table'    => 'failed_jobs',
     ],
-
 ];

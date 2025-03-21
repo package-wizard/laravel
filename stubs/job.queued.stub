@@ -1,0 +1,20 @@
+<?php
+
+namespace {{ namespace }};
+
+use App\Jobs\Job;
+use Illuminate\Contracts\Queue\ShouldQueue;
+use Illuminate\Foundation\Queue\Queueable;
+
+class {{ class }} extends Job
+{
+    public function __construct()
+    {
+        //
+    }
+
+    public function handle(): void
+    {
+        //
+    }
+}

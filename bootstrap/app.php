@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use App\Console\Handler as ScheduleHandler;
 use App\Exceptions\Handler as ExceptionsHandler;
 use Illuminate\Foundation\Application;

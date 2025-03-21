@@ -1,11 +1,12 @@
 <?php
 
+declare(strict_types=1);
+
 use Monolog\Handler\NullHandler;
 use Monolog\Handler\StreamHandler;
 use Monolog\Processor\PsrLogMessageProcessor;
 
 return [
-
     'default' => env('LOG_CHANNEL', 'stack'),
 
     'deprecations' => [
@@ -14,7 +15,6 @@ return [
     ],
 
     'channels' => [
-
         'stack' => [
             'driver'            => 'stack',
             'channels'          => explode(',', env('LOG_STACK', 'single')),
@@ -43,8 +43,8 @@ return [
             'handler_with' => [
                 'stream' => 'php://stderr',
             ],
-            'formatter'    => env('LOG_STDERR_FORMATTER'),
-            'processors'   => [PsrLogMessageProcessor::class],
+            'formatter'  => env('LOG_STDERR_FORMATTER'),
+            'processors' => [PsrLogMessageProcessor::class],
         ],
 
         'syslog' => [
@@ -73,7 +73,5 @@ return [
         'emergency' => [
             'path' => storage_path('logs/emergency.log'),
         ],
-
     ],
-
 ];
