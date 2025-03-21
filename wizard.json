@@ -1,0 +1,38 @@
+{
+    "$schema": "https://package-wizard.com/schemas/schema-v2.json",
+    "wizard": {
+        "manager": {
+            "composer": true,
+            "npm": true
+        }
+    },
+    "copies": [
+        {
+            "source": ".env.example",
+            "target": ".env"
+        },
+        {
+            "source": "_wizard/playground.php",
+            "target": "routes/playground.php"
+        }
+    ],
+    "removes": [
+        "_wizard"
+    ],
+    "questions": [
+        {
+            "type": "ask",
+            "prompt": "text",
+            "question": "Which name of your project?",
+            "replace": "The Best Laravel Template"
+        },
+        {
+            "type": "license",
+            "replace": ["MIT", "MIT License"]
+        },
+        {
+            "type": "author",
+            "replace": "Package Wizard, Andrey Helldar"
+        }
+    ]
+}

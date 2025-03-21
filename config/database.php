@@ -69,6 +69,12 @@ return [
         'update_date_on_publish' => true,
     ],
 
+    'schema' => [
+        'tables' => [
+            'operations',
+        ],
+    ],
+
     'redis' => [
         'client' => env('REDIS_CLIENT', 'phpredis'),
 
