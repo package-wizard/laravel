@@ -18,7 +18,7 @@ class InspireRequest extends Request
             'id' => [
                 'required',
                 'string',
-                'uuid:4',
+                'uuid',
             ],
         ];
     }

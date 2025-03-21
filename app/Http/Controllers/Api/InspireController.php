@@ -16,10 +16,7 @@ readonly class InspireController
 
     public function __invoke(InspireRequest $request)
     {
-        return InspireResource::collection(
-            $this->inspire->quotes()
-        )->additional([
-            'data' => $request->dto(),
-        ]);
+        return InspireResource::collection($this->inspire->quotes())
+            ->additional(['request' => $request->dto()]);
     }
 }

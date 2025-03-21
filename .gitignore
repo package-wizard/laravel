@@ -22,7 +22,7 @@
 
 /.env
 /.env.*
-!/.env.testing
+!/.env.example
 
 *.backup
 *.cache

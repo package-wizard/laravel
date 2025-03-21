@@ -1,5 +1,5 @@
-### GET inspiring
-GET {{host}}/api/inspiring
+### GET inspires
+GET {{host}}/api/inspires?id={{$random.uuid}}
 Accept: application/json
 Content-Type: application/json
 X-Some-Key: {{token}}

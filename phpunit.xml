@@ -2,6 +2,7 @@
 <phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:noNamespaceSchemaLocation="vendor/phpunit/phpunit/phpunit.xsd"
          bootstrap="vendor/autoload.php"
+         cacheResult="false"
          colors="true"
 >
     <testsuites>
@@ -19,13 +20,23 @@
     </source>
     <php>
         <env name="APP_ENV" value="testing" />
-        <env name="APP_MAINTENANCE_DRIVER" value="file" />
+        <env name="APP_KEY" value="base64:Xr3JJ+9cS4VHSlM2/8P5ZAB4fq+1ePMVpqbBrM7lWW0=" />
+        <env name="APP_DEBUG" value="true" />
+
+        <env name="APP_MAINTENANCE_DRIVER" value="cache" />
+        <env name="APP_MAINTENANCE_STORE" value="array" />
 
         <env name="BCRYPT_ROUNDS" value="4" />
-
         <env name="CACHE_STORE" value="array" />
+        <env name="LOG_CHANNEL" value="single" />
+
+        <env name="CONCURRENCY_DRIVER" value="sync" />
+
         <env name="DB_CONNECTION" value="pgsql" />
-        <env name="DB_DATABASE" value=":database_name:_testing" />
+        <env name="DB_DATABASE" value="laravel_testing" />
+        <env name="DB_USERNAME" value="root" />
+        <env name="DB_PASSWORD" value="dev" />
+
         <env name="MAIL_MAILER" value="array" />
         <env name="PULSE_ENABLED" value="false" />
         <env name="QUEUE_CONNECTION" value="sync" />
