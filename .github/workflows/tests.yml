@@ -1,0 +1,48 @@
+name: Tests
+
+on:
+    push:
+        branches-ignore:
+            - main
+        tags-ignore:
+            - '**'
+
+jobs:
+    Parallel:
+        runs-on: ubuntu-latest
+        
+        services:
+            postgres:
+                image: postgres:17-alpine
+                ports:
+                    - 5432:5432
+                env:
+                    POSTGRES_DB: kvede_test
+                    POSTGRES_USER: root
+                    POSTGRES_PASSWORD: dev
+                options: --health-cmd=pg_isready --health-interval=10s --health-timeout=5s --health-retries=3
+        
+        steps:
+            -   name: Checkout code
+                uses: actions/checkout@v4
+
+            -   name: Setup PHP
+                uses: shivammathur/setup-php@v2
+                with:
+                    php-version: 8.4
+                    extensions: dom, curl, libxml, mbstring, zip, pcntl, pdo, sqlite, pdo_sqlite, gd, pdo_mysql, pdo_pgsql
+                    coverage: xdebug
+
+            -   name: Setup Node
+                uses: actions/setup-node@v4
+                with:
+                    node-version: 22
+
+            -   name: Install Composer dependencies
+                run: composer install --no-progress --no-scripts --optimize-autoloader --no-interaction --ansi
+
+            -   name: Install Node dependencies
+                run: npm ci
+
+            -   name: Execute tests
+                run: composer test
