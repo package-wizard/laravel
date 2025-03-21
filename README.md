@@ -1,6 +1,6 @@
 # The Best Laravel Template
 
-![preview](https://preview.dragon-code.pro/package%20wizard/laravel%20template.svg)
+![preview](https://preview.dragon-code.pro/package%20wizard/laravel%20template.svg?brand=laravel&mode=auto)
 
 ## Documentation
 
